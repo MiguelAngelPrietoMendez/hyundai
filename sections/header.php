@@ -1,4 +1,12 @@
+<?php
+    
+   include 'models/plantilla_select.php';
+                    
+   $resultHeader= $mysqli->query("SELECT * FROM tbl_header where id_plantilla=".$rowPlantilla["id_plantillas"]."");
+   $rowHeader = $resultHeader->fetch_array();
+    
 
+?>
   <div class="section">
       <div class="container">
         <div class="row" >
@@ -16,29 +24,67 @@
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-ex-collapse">
                   <ul  class="nav navbar-nav navbar-right">
-                    <li class="active liMenu">
-                        <a class="aNav"  href="index.php">HOME</a>
-                    </li>
-                    <hr class="hrNav">
-                    <li class="liMenu">
-                      <a class="aNav" href="eontech.php">EON TECH</a>
-                    </li>
-                    <hr class="hrNav">
-                    <li class="liMenu">
-                      <a class="aNav" href="playlist.php">PLAYLIST</a>
-                    </li>
-                    <hr class="hrNav">
-                    <li class="liMenu">
-                      <a class="aNav" href="technotips.php">TECHNOTIPS</a>
-                    </li>
+                    <?php
+                    for($i=1 ; $i<=5 ;$i++)
+                    {
+                        if($rowHeader["texto_".$i."_header"]!="")
+                        {
+                            if($i>1)
+                            { 
+                                ?>
+                                <li class="liMenu">
+                                    <a class="aNav" href="<?php echo $rowHeader["url_".$i."_header"]; ?>"><?php echo $rowHeader["texto_".$i."_header"]; ?></a>
+                                 </li>
+                                 <?php
+                                 $i2=$i+1;
+                                 $i3=$i+2; 
+                                 $i4=$i+3;
+                                 $i5=$i+4; 
+                                 if((isset($rowHeader["texto_".$i2."_header"]) && $rowHeader["texto_".$i2."_header"]!="") || 
+                                    (isset($rowHeader["texto_".$i3."_header"]) && $rowHeader["texto_".$i3."_header"]!="") ||
+                                    (isset($rowHeader["texto_".$i4."_header"]) && $rowHeader["texto_".$i4."_header"]!="") ||
+                                    (isset($rowHeader["texto_".$i5."_header"]) && $rowHeader["texto_".$i5."_header"]!="") 
+                                   )
+                                 {
+                                    ?>
+                                    <hr class="hrNav">
+                                    <?php
+                                 } 
+                                 
+                            }else
+                            {
+                                ?>
+                                <li class="active liMenu">
+                                    <a class="aNav"  href="<?php echo $rowHeader["url_".$i."_header"]; ?>"><?php echo $rowHeader["texto_".$i."_header"]; ?></a>
+                                </li>
+                                <?php
+                                 $in2=$i+1;
+                                 $in3=$i+2; 
+                                 $in4=$i+3;
+                                 $in5=$i+4; 
+                                 if((isset($rowHeader["texto_".$in2."_header"]) && $rowHeader["texto_".$in2."_header"]!="") || 
+                                    (isset($rowHeader["texto_".$in3."_header"]) && $rowHeader["texto_".$in3."_header"]!="") ||
+                                    (isset($rowHeader["texto_".$in4."_header"]) && $rowHeader["texto_".$in4."_header"]!="") ||
+                                    (isset($rowHeader["texto_".$in5."_header"]) && $rowHeader["texto_".$in5."_header"]!="") 
+                                   )
+                                 {
+                                    ?>
+                                    <hr class="hrNav">
+                                    <?php
+                                 } 
+                              
+                            }
+                        }
+                    }
+                        
+                    
+                    ?>
+                    
                     <!--<hr class="hrNav">
                     <li class="liMenu">
                       <a class="aNav" onclick="goPag('viewMundoEon');">MUNDO EON</a>
                     </li>-->
-                    <hr class="hrNav">
-                    <li class="liMenu">
-                      <a class="aNav" href="galeria.php">GALERÍA</a>
-                    </li>
+                    
                   </ul>
                 </div>
               </div>

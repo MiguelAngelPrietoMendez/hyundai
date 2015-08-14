@@ -41,13 +41,6 @@
 <script src="js/bootstrap/fileinput.min.js" type="text/javascript"></script>
 <script src="js/bootstrap/fileinput_locale_es.js" type="text/javascript"></script>
 <link href="css/bootstrap/fileinput.css" rel="stylesheet" type="text/css"/>
-<link href="css/styleHyundai.css" rel="stylesheet" type="text/css"/>
+<link href="css/styleHyundai.php" rel="stylesheet" type="text/css"/>
 <script src="js/jsHyundai.js" type="text/javascript"></script>
-  
-
-<?php/*
-$bodytag = str_replace("%2", '"', urlencode($pageURL));
-*/            
-
-?>
 
