@@ -1,6 +1,5 @@
 <?php
     
-   include 'models/plantilla_select.php';
                     
    $resultHeader= $mysqli->query("SELECT * FROM tbl_header where id_plantilla=".$rowPlantilla["id_plantillas"]."");
    $rowHeader = $resultHeader->fetch_array();
