@@ -22,6 +22,10 @@ $rowSeccion1 = $resultSeccion1->fetch_array();
 $resultSeccion2 = $mysqli->query("SELECT * FROM tbl_seccion_2 where id_plantilla=" . $rowPlantilla["id_plantillas"] . "");
 $rowSeccion2 = $resultSeccion2->fetch_array();
 
+/*  SECCION 3 - QUERY  */
+$resultSeccion3 = $mysqli->query("SELECT * FROM tbl_seccion_3 where id_plantilla=" . $rowPlantilla["id_plantillas"] . "");
+$rowSeccion3 = $resultSeccion3->fetch_array();
+
 header("Content-type: text/css; charset: UTF-8");
 ?>
 @font-face {
@@ -200,10 +204,10 @@ padding-left: 40px;
 
 #btnPlayList{
 border-style: solid;
-border-color: rgba(238, 238, 238, 0.5);
+border-color: <?php echo $rowSeccion3["titulo_1_color_borde_seccion_3"]; ?>;
 border-width: 1px;
-background-color: rgb(2, 2, 2);
-color: #E9F2EF;
+background-color: <?php echo $rowSeccion3["titulo_1_color_fondo_seccion_3"]; ?>;
+color: <?php echo $rowSeccion3["titulo_1_color_texto_seccion_3"]; ?>;
 border-radius: 0;
 padding-top: 4px;
 padding-bottom: 4px;
@@ -262,15 +266,12 @@ padding-left: 40px;
 
 }
 
-
-
-#btnCompartir {
+#btnCompartir 
+{
 float: right;
 margin-top: 2.5%;
-
 margin-left: -62px;
 border-style: solid;
-
 border-width: 1px;
 margin-right: 0px;
 background-color: rgb(2, 2, 2);
@@ -281,28 +282,25 @@ padding-top: 3px;
 padding-bottom: 3px;
 padding-right: 8px;
 padding-left: 8px;
-
 font-size: 14px;
 }
 
-#btnCompartirPlay {
+#btnCompartirPlay 
+{
 float: right;
 margin-top: 1%;
-
 margin-left: -62px;
 border-style: solid;
-
 border-width: 1px;
 margin-right: 0px;
-background-color: rgb(2, 2, 2);
-border-color: rgb(120, 120, 120);
-color: #E9F2EF;
+background-color: <?php echo $rowSeccion3["boton_1_color_fondo_seccion_3"]; ?>;
+border-color: <?php echo $rowSeccion3["boton_1_color_borde_seccion_3"]; ?>;
+color: <?php echo $rowSeccion3["boton_1_color_texto_seccion_3"]; ?>;
 border-radius: 0;
 padding-top: 3px;
 padding-bottom: 3px;
 padding-right: 8px;
 padding-left: 8px;
-
 font-size: 14px;
 }
 
@@ -716,7 +714,7 @@ padding-right: 0%;
 }
 #tg-ELLii
 {
-    <?php echo $rowSeccion2["tabla_color_fondo_seccion_2"]; ?>;
+<?php echo $rowSeccion2["tabla_color_fondo_seccion_2"]; ?>;
 }
 .tg-031e, .tg-s6z2
 {
@@ -1406,28 +1404,20 @@ display: none;
 
 
 
-#btnCotizaloAqui {
+#btnCotizaloAqui 
+{
 margin-top: 5px;
-
 margin-left: -4%;
-border-style: solid;
-border-color: rgba(238, 238, 238, 0.5);
-border-width: 1px;
-background-color: rgb(2, 2, 2);
-color: #E9F2EF;
-border-radius: 0;
 padding-top: 4px;
 padding-bottom: 4px;
 padding-right: 40px;
 padding-left: 40px;
-
 border-style: solid;
-border-color: #03519A;
+border-color: <?php echo $rowSeccion3["titulo_2_color_borde_seccion_3"]; ?>;
 border-width: 1px;
-background-color: #020202;
-color: #A6E53F;
+background-color: <?php echo $rowSeccion3["titulo_2_color_fondo_seccion_3"]; ?>;
+color: <?php echo $rowSeccion3["titulo_2_color_texto_seccion_3"]; ?>;
 border-radius: 0;
-
 }
 
 #btnCotizaloAquiTecnologia {

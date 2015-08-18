@@ -1,4 +1,7 @@
-
+<?php
+$resultSeccion4 = $mysqli->query("SELECT * FROM tbl_seccion_4 where id_plantilla=" . $rowPlantilla["id_plantillas"] . "");
+$rowSeccion4 = $resultSeccion4->fetch_array();
+?>
 
 <br><br>
           <div class="col-md-12 text-center" id="divBtnCampanaTit">
