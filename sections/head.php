@@ -44,3 +44,6 @@
 <link href="css/styleHyundai.php" rel="stylesheet" type="text/css"/>
 <script src="js/jsHyundai.js" type="text/javascript"></script>
 
+<!--EFECTOS JQUERY-->
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+

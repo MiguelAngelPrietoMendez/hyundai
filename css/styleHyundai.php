@@ -18,6 +18,10 @@ $rowFooter = $resultFooter->fetch_array();
 $resultSeccion1 = $mysqli->query("SELECT * FROM tbl_seccion_1 where id_plantilla=" . $rowPlantilla["id_plantillas"] . "");
 $rowSeccion1 = $resultSeccion1->fetch_array();
 
+/*  SECCION 2 - QUERY  */
+$resultSeccion2 = $mysqli->query("SELECT * FROM tbl_seccion_2 where id_plantilla=" . $rowPlantilla["id_plantillas"] . "");
+$rowSeccion2 = $resultSeccion2->fetch_array();
+
 header("Content-type: text/css; charset: UTF-8");
 ?>
 @font-face {
@@ -181,10 +185,11 @@ padding-left: 40px;
 #btnEonTech{
 margin-top: 5px;
 margin-left: -6%;
-border-style: solid;    border-color: rgba(238, 238, 238, 0.5);    border-width: 1px;    
-
-background-color: rgb(2, 2, 2);
-color: #E9F2EF;
+border-style: solid;   
+border-color: <?php echo $rowSeccion2["titulo_color_borde_seccion_2"]; ?>;
+border-width: 1px;    
+background-color: <?php echo $rowSeccion2["titulo_color_fondo_seccion_2"]; ?>;
+color: <?php echo $rowSeccion2["titulo_color_texto_seccion_2"]; ?>;
 border-radius: 0;
 padding-top: 4px;
 padding-bottom: 4px;
@@ -377,21 +382,19 @@ border-color: <?php echo $rowSeccion1["boton_3_color_borde_seccion_1"]; ?>;
 background-color: <?php echo $rowSeccion1["boton_3_color_fondo_seccion_1"]; ?>;
 color: <?php echo $rowSeccion1["boton_3_color_texto_seccion_1"]; ?>;
 }
-#btnConoce2,#btnComparte2{
-
-
+#btnConoce2,#btnComparte2
+{
 width: 96%;
 border-style: solid;    
-border-color: rgb(3, 81, 154);    border-width: 1px;    
-
-background-color: rgb(3, 81, 154);
-color: #E9F2EF;
+border-color: <?php echo $rowSeccion2["boton_1_color_borde_seccion_2"]; ?>;
+border-width: 1px;    
+background-color: <?php echo $rowSeccion2["boton_1_color_fondo_seccion_2"]; ?>;
+color: <?php echo $rowSeccion2["boton_1_color_texto_seccion_2"]; ?>;
 border-radius: 0;
 padding-top: 4px;
 padding-bottom: 4px;
 padding-right: 40px;
 padding-left: 40px;
-
 margin-bottom: 5px;
 margin-top: 8px;
 font-size: 15px;
@@ -401,8 +404,8 @@ letter-spacing: 1px;
 
 #btnComparte2
 {
-background-color: rgba(2, 2, 2, 0.34);
-border-color: rgba(120, 120, 120, 0.34);
+background-color: <?php echo $rowSeccion2["boton_2_color_fondo_seccion_2"]; ?>;
+border-color: <?php echo $rowSeccion2["boton_2_color_borde_seccion_2"]; ?>;
 }
 
 #btnConoceMasAqui{
@@ -433,7 +436,7 @@ padding-right: 2.6%;
 padding-top: 30px;
 color: <?php echo $rowSeccion1["texto_color_seccion_1"]; ?>;
 }
- 
+
 footer
 {
 font-size: 10px;
@@ -452,10 +455,10 @@ font-style: italic;
 {
 margin-top: 12px;
 border-style: solid;    
-border-color: #03519A;    border-width: 1px;    
-
-background-color: #020202;
-color: #A6E53F;
+border-color: <?php echo $rowSeccion2["boton_3_color_borde_seccion_2"]; ?>;
+border-width: 1px;    
+background-color: <?php echo $rowSeccion2["boton_3_color_fondo_seccion_2"]; ?>;
+color: <?php echo $rowSeccion2["boton_3_color_texto_seccion_2"]; ?>;
 border-radius: 0;
 padding-top: 3px;
 padding-bottom: 3px;
@@ -470,12 +473,11 @@ font-size: 13px;
 }
 #btnConoceMasAqui3
 {
-
 border-style: solid;    
-border-color: #3C3C3C;    border-width: 1px;    
-
-background-color: #020202;
-color: #03519A;
+border-color:<?php echo $rowSeccion2["tabla_titulo_color_borde_seccion_2"]; ?>;
+border-width: 1px;    
+background-color: <?php echo $rowSeccion2["tabla_titulo_color_fondo_seccion_2"]; ?>;
+color: <?php echo $rowSeccion2["tabla_titulo_color_texto_seccion_2"]; ?>;
 border-radius: 0;
 padding-top: 3px;
 padding-bottom: 3px;
@@ -563,267 +565,78 @@ font-size: 14px;
 
 
 
-#descripParte_1
-{
-margin-top: 8%;
-width: 200px;
-z-index: 9999999; 
-position: absolute; 
-padding: 5px;
-color: #eee;
 
-font-weight: bold;
-
-font-size: 13px;
-
-}
-#descripParte_1 p
-{
-background: rgba(2, 2, 2, 0.51);
-border-style: solid;
-color: rgb(17, 112, 199);
-border-width: 1px;
-border-color: rgb(42, 42, 42);
-padding-bottom: 2%;
-padding-top: 2%;
-padding-left: 2%;
-padding-right: 2%;
-text-align: center;
-font-weight: bold;
-font-size: 12px;
-}
-#conectorParte1{
-
-float: left;
-width: 8%;
-position: absolute;
-margin-top: 9.8%;
-margin-left: 19%;
-}
-
-
-#descripParte_2
-{
-margin-top: 9.5%;
-width: 200px;
-z-index: 9999999; 
-position: absolute; 
-padding: 5px;
-color: #eee;
-
-font-weight: bold;
-
-font-size: 13px;
-
-
-}
-#descripParte_2 p
-{
-background: rgba(2, 2, 2, 0.51);
-border-style: solid;
-color: rgb(17, 112, 199);
-border-width: 1px;
-border-color: rgb(42, 42, 42);
-
-padding-bottom: 2%;
-padding-top: 2%;
-padding-left: 2%;
-padding-right: 2%;
-text-align: center;
-font-weight: bold;
-font-size: 12px;
-}
-#conectorParte2{
-
-float: left;
-
-width: 26.2%;
-position: absolute;
-margin-top: 11.5%;
-margin-left: 19%;
-}
-
-
-
-#descripParte_3
-{
-margin-top: 8.5%;
-width: 200px;
-z-index: 9999999; 
-position: absolute; 
-padding: 5px;
-color: #eee;
-
-font-weight: bold;
-
-font-size: 13px;
-
-
-}
-#descripParte_3 p
-{
-background: rgba(2, 2, 2, 0.51);
-border-style: solid;
-color: rgb(17, 112, 199);
-border-width: 1px;
-border-color: rgb(42, 42, 42);
-padding-bottom: 2%;
-padding-top: 2%;
-padding-left: 2%;
-padding-right: 2%;
-text-align: center;
-font-weight: bold;
-font-size: 12px;
-}
-#conectorParte3{
-
-float: left;
-
-width: 34.2%;
-position: absolute;
-margin-top: 10.2%;
-margin-left: 19%;
-}
-
-
-#descripParte_4
-{
-margin-top: 11.1%;
-width: 200px;
-z-index: 9999999; 
-position: absolute; 
-padding: 5px;
-color: #eee;
-
-font-weight: bold;
-
-font-size: 13px;
-
-
-}
-#descripParte_4 p
-{
-background: rgba(2, 2, 2, 0.51);
-border-style: solid;
-color: rgb(17, 112, 199);
-border-width: 1px;
-border-color: rgb(42, 42, 42);
-padding-bottom: 2%;
-padding-top: 2%;
-padding-left: 2%;
-padding-right: 2%;
-text-align: center;
-font-weight: bold;
-font-size: 12px;
-}
-#conectorParte4{
-
-float: left;
-
-width: 40.2%;
-position: absolute;
-margin-top: 13%;
-margin-left: 19%;
-}
-
-
-
-#descripParte_5
-{
-margin-top: 12.5%;
-width: 200px;
-z-index: 9999999; 
-position: absolute; 
-padding: 5px;
-color: #eee;
-
-font-weight: bold;
-
-font-size: 13px;
-
-
-}
-#descripParte_5 p
-{
-background: rgba(2, 2, 2, 0.51);
-border-style: solid;
-color: rgb(17, 112, 199);
-border-width: 1px;
-border-color: rgb(42, 42, 42);
-padding-bottom: 2%;
-padding-top: 2%;
-padding-left: 2%;
-padding-right: 2%;
-text-align: center;
-font-weight: bold;
-font-size: 12px;
-}
-#conectorParte5{
-
-float: left;
-
-width: 15.2%;
-position: absolute;
-margin-top: 14.7%;
-margin-left: 19%;
-}
-
-
-#descripParte_6
-{
-margin-top: 21%;
-width: 200px;
-z-index: 9999999; 
-position: absolute; 
-padding: 5px;
-color: #eee;
-
-font-weight: bold;
-
-font-size: 13px;
-
-
-}
-#descripParte_6 p
-{
-background: rgba(2, 2, 2, 0.51);
-border-style: solid;
-color: rgb(17, 112, 199);
-border-width: 1px;
-border-color: rgb(42, 42, 42);
-padding-bottom: 2%;
-padding-top: 2%;
-padding-left: 2%;
-padding-right: 2%;
-text-align: center;
-font-weight: bold;
-font-size: 12px;
-}
-#conectorParte6{
-
-float: left;
-
-width: 31.5%;
-position: absolute;
-margin-top: 22.7%;
-margin-left: 19.2%;
-}
-
-
-
-
-
-.partesCar
+#parte_1,#parte_2,#parte_3,#parte_4,#parte_5,#parte_6
 {
 width: 37px;
 height: 37px;
 background-image: url(../src/img/eon-tech/verDescripcion.png);
+float: left;
+position: relative;
+}
+
+#parte_1
+{
+left: <?php echo $rowSeccion2["div_desc_1_left_seccion_2"]; ?>;
+top: <?php echo $rowSeccion2["div_desc_1_top_seccion_2"]; ?>;
+}
+
+#parte_2
+{
+left: <?php echo $rowSeccion2["div_desc_2_left_seccion_2"]; ?>;
+top: <?php echo $rowSeccion2["div_desc_2_top_seccion_2"]; ?>;
+}
+
+#parte_3
+{
+left: <?php echo $rowSeccion2["div_desc_3_left_seccion_2"]; ?>;
+top: <?php echo $rowSeccion2["div_desc_3_top_seccion_2"]; ?>;
+
+}
+
+#parte_4
+{
+left: <?php echo $rowSeccion2["div_desc_4_left_seccion_2"]; ?>;
+top: <?php echo $rowSeccion2["div_desc_4_top_seccion_2"]; ?>;
+}
+
+#parte_5
+{
+left: <?php echo $rowSeccion2["div_desc_5_left_seccion_2"]; ?>;
+top: <?php echo $rowSeccion2["div_desc_5_top_seccion_2"]; ?>;
+}
+
+#parte_6
+{
+left: <?php echo $rowSeccion2["div_desc_6_left_seccion_2"]; ?>;
+top: <?php echo $rowSeccion2["div_desc_6_top_seccion_2"]; ?>;
+}
+
+
+#descripParte_1,#descripParte_2,#descripParte_3,#descripParte_4,#descripParte_5,#descripParte_6
+{
+float: left;
+position: absolute;
+left: 5%;
+top: 5%;
+}
+#descripParte_1 p,#descripParte_2 p,#descripParte_3 p,#descripParte_4 p,#descripParte_5 p,#descripParte_6 p
+{
+background: <?php echo $rowSeccion2["desc_color_fondo_seccion_2"]; ?>;
+border-style: solid;
+color: <?php echo $rowSeccion2["desc_color_texto_seccion_2"]; ?>;
+border-width: 1px;
+border-color: <?php echo $rowSeccion2["desc_color_borde_seccion_2"]; ?>;
+padding-bottom: 2%;
+padding-top: 2%;
+padding-left: 2%;
+padding-right: 2%;
+text-align: center;
+font-weight: bold;
 }
 
 .descripcionCar h4
 {
-
-
 text-align: center;
 color:#00C2F3;
 border-left-style: solid;
@@ -841,22 +654,11 @@ border-bottom-width: 1px;
 padding-bottom: 2px;
 padding-left: 45px;
 padding-right: 45px;
-
-
-
-
-
-
 border-bottom-left-radius: 714px 800px;
-
-
-
 border-top-right-radius: 714px 800px;
 }
 .descripcionCar H5
 {
-
-
 text-align: center;
 color:#fff;
 border-left-style: solid;
@@ -887,19 +689,18 @@ visibility: visible;
 }
 
 
-#contenedorVideoET{
+#contenedorVideoET
+{
 width: 85%;
 height: auto;
 margin-left: 9%;
 max-width: 1000px;
-
-
 }
 
 #hrCaracteristicas
 {
 background-color: rgba(14, 14, 14, 1);
-border-top: 1px solid rgba(238, 238, 238, 0.55);
+border-top: 1px solid <?php echo $rowSeccion2["linea_1_color_seccion_2"]; ?>;
 
 }
 
@@ -913,13 +714,15 @@ margin: 0 auto;
 {
 padding-right: 0%;
 }
-
+#tg-ELLii
+{
+    <?php echo $rowSeccion2["tabla_color_fondo_seccion_2"]; ?>;
+}
 .tg-031e, .tg-s6z2
 {
-color: #fff;
+color: <?php echo $rowSeccion2["tabla_color_texto_seccion_2"]; ?>;
 font-weight: bold;
-
-border-color: #3c3c3c;
+border-color: <?php echo $rowSeccion2["tabla_color_borde_seccion_2"]; ?>;
 font-size: 12px;
 }
 

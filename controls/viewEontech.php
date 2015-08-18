@@ -1,6 +1,9 @@
 <?php
 require_once ('libraries/Mobile-Detect-master/Mobile_Detect.php');
 $detect = new Mobile_Detect();
+
+$resultSeccion2 = $mysqli->query("SELECT * FROM tbl_seccion_2 where id_plantilla=" . $rowPlantilla["id_plantillas"] . "");
+$rowSeccion2 = $resultSeccion2->fetch_array();
 ?>
 <script src="js/jsHyundai.js" type="text/javascript"></script>
 
@@ -9,99 +12,82 @@ $detect = new Mobile_Detect();
     {
         //   PARTE 1
         $("#descripParte_1").hide();
-        $("#conectorParte1").hide();
-
         $('#parte_1').hover(
                 function ()
                 {
-                    $("#descripParte_1").fadeIn(500);
-                    $("#conectorParte1").fadeIn(500);
+                     $("#descripParte_1").effect( "bounce", "slow" );
+                  
                 },
                 function ()
                 {
                     $("#descripParte_1").fadeOut(100);
 
-                    $("#conectorParte1").fadeOut(100);
+                  
                 }
         );
 
         //  PARTE 2
         $("#descripParte_2").hide();
-        $("#conectorParte2").hide();
         $('#parte_2').hover(
                 function ()
                 {
-                    $("#descripParte_2").fadeIn(500);
-                    $("#conectorParte2").fadeIn(500);
+                    $("#descripParte_2").effect( "bounce", "slow" );
                 },
                 function ()
                 {
                     $("#descripParte_2").fadeOut(100);
-                    $("#conectorParte2").fadeOut(100);
                 }
         );
 
         //  PARTE 3
         $("#descripParte_3").hide();
-        $("#conectorParte3").hide();
         $('#parte_3').hover(
                 function ()
                 {
-                    $("#descripParte_3").fadeIn(500);
-                    $("#conectorParte3").fadeIn(500);
+                    $("#descripParte_3").effect( "bounce", "slow" );
                 },
                 function ()
                 {
                     $("#descripParte_3").fadeOut(100);
-                    $("#conectorParte3").fadeOut(100);
                 }
         );
 
         //  PARTE 4
         $("#descripParte_4").hide();
-        $("#conectorParte4").hide();
         $('#parte_4').hover(
                 function ()
                 {
-                    $("#descripParte_4").fadeIn(500);
-                    $("#conectorParte4").fadeIn(500);
+                    $("#descripParte_4").effect( "bounce", "slow" );
                 },
                 function ()
                 {
                     $("#descripParte_4").fadeOut(100);
-                    $("#conectorParte4").fadeOut(100);
                 }
         );
 
         //  PARTE 5
         $("#descripParte_5").hide();
-        $("#conectorParte5").hide();
         $('#parte_5').hover(
                 function ()
                 {
-                    $("#descripParte_5").fadeIn(500);
-                    $("#conectorParte5").fadeIn(500);
+                    $("#descripParte_5").effect( "bounce", "slow" );
                 },
                 function ()
                 {
                     $("#descripParte_5").fadeOut(100);
-                    $("#conectorParte5").fadeOut(100);
                 }
         );
 
         //  PARTE 6
         $("#descripParte_6").hide();
-        $("#conectorParte6").hide();
         $('#parte_6').hover(
                 function ()
                 {
-                    $("#descripParte_6").fadeIn(500);
-                    $("#conectorParte6").fadeIn(500);
+                    $("#descripParte_6").effect( "bounce", "slow" );
                 },
                 function ()
                 {
                     $("#descripParte_6").fadeOut(100);
-                    $("#conectorParte6").fadeOut(100);
                 }
         );
 
@@ -151,41 +137,15 @@ $detect = new Mobile_Detect();
 
 
                     <div id="contenedorVideoET">
-
-                        <iframe width="400" height="315" src="https://www.youtube.com/embed/BIBSpBCAnAg" frameborder="0" allowfullscreen></iframe>
-
-
-
+                        <!--<iframe width="400" height="315" src="https://www.youtube.com/embed/BIBSpBCAnAg" frameborder="0" allowfullscreen></iframe>-->
                         <?php
-                        /* if ($detect->isMobile() || $detect->isTablet() || $detect->isAndroidOS() || $detect->isiOS()) 
-                          { */
+                            $step1=explode('v=', $rowSeccion2["video_url_seccion_2"]);
+                            $step2 =explode('&',$step1[1]);
+                            $vedio_id = $step2[0];
+                            echo '<iframe width="400" height="315" frameborder="0" allowfullscreen
+                                        src="http://www.youtube.com/embed/'. $vedio_id.'" >
+                                  </iframe>'; 
                         ?>
-                        <!-- <video id="videoET" src="src/video/eontech.mov" controls></video> -->
-                        <!--<video id="videoET" src="src/video/HYUNDAI_mobile.mp4" controls preload></video>--> 
-
-                        <?php
-                        /*  }else
-                          { */
-                        ?>
-<!--                      <img src="src/img/eon-tech/play-eon.png" alt="EON TECH nuevo Hyundai"  class="center-block img-responsive" id="imgVideoET"/>
-<video id="videoET" src="src/video/HYUNDAI_web.mp4" controls preload></video> -->
-
-                        <!--             <div id="buttonbar">
-                        
-                                         <img class="pause" id="play" onclick="vidplay()" src="src/img/eon-tech/pause.png" alt="EON TECH nuevo Hyundai"/>
-                                         <img class="play" id="play" onclick="vidplay()" src="src/img/eon-tech/play.png" alt="EON TECH nuevo Hyundai"/>
-                                         <img id="restart" onclick="restart_1();" src="src/img/eon-tech/reload.png" alt="EON TECH nuevo Hyundai"/>
-                        
-                                    </div> -->
-                                      <!--<img src="src/img/eon-tech/transparencia.png" alt="EON TECH nuevo Hyundai"  class="center-block img-responsive" id="imgSombraVideoET"/>-->
-                        <?php
-//}
-                        ?>
-
-
-
-
-
                     </div>
                 </div>
             </div>
@@ -195,7 +155,7 @@ $detect = new Mobile_Detect();
 
 <br>
 <div class="col-md-12 text-center" id="divBtnCampana">
-    <a class="btn btn-default btn-lg" id="btnEonTech">CARACTERÍSTICAS</a>
+    <a class="btn btn-default btn-lg" id="btnEonTech"><?php echo utf8_encode($rowSeccion2["titulo_texto_seccion_2"]); ?></a>
     <hr id="hr">
 </div>
 
@@ -208,113 +168,49 @@ $detect = new Mobile_Detect();
                 <div id="mostrarCaracteristicasEscritorio">
 
 
-
-                    <!--PARTE 1-->
-                    <div id="descripParte_1">
-                           <!-- <p>VIDRIOS ELÉCTRICOS DELANTEROS</p>-->
-                        <p>BAÚL DE GRAN CAPACIDAD</p>
+                    <div style="background-image: url(<?php echo $rowSeccion2["imagen_carro_1_seccion_2"]; ?>); height: 365px; max-height: 365px;  ">
+                        
+                        <!--PARTE 1-->
+                        <div id="descripParte_1">
+                            <p><?php echo utf8_encode($rowSeccion2["desc_1_texto_seccion_2"]); ?></p>
+                        </div>
+                        <div  class="partesCar" id="parte_1" ></div>
+                        
+                        <!--PARTE 2-->
+                        <div id="descripParte_2">
+                            <p><?php echo utf8_encode($rowSeccion2["desc_2_texto_seccion_2"]); ?></p>
+                        </div>
+                        <div  class="partesCar" id="parte_2" ></div>
+                        
+                        <!--PARTE 3-->
+                        <div id="descripParte_3">
+                            <p><?php echo utf8_encode($rowSeccion2["desc_3_texto_seccion_2"]); ?></p>
+                        </div>
+                        <div  class="partesCar" id="parte_3" ></div>
+                        
+                        <!--PARTE 4-->
+                        <div id="descripParte_4">
+                            <p><?php echo utf8_encode($rowSeccion2["desc_4_texto_seccion_2"]); ?></p>
+                        </div>
+                        <div  class="partesCar" id="parte_4" ></div>
+                        
+                        <!--PARTE 5-->
+                        <div id="descripParte_5">
+                            <p><?php echo utf8_encode($rowSeccion2["desc_5_texto_seccion_2"]); ?></p>
+                        </div>
+                        <div  class="partesCar" id="parte_5" ></div>
+                        
+                        <!--PARTE 6-->
+                        <div id="descripParte_6">
+                            <p><?php echo utf8_encode($rowSeccion2["desc_6_texto_seccion_2"]); ?></p>
+                        </div>
+                        <div  class="partesCar" id="parte_6" ></div>
+                        
                     </div>
-                    <hr id="conectorParte1">
-                    <div  class="partesCar" id="parte_1" style=" 
-                          float: left;
-                          background-color: rgba(255, 255, 255, 0.34);
-                          position: absolute;
-                          border-radius: 50%;
-                          margin-left: 27%;
-                          margin-top: 8%;
-                          ">
-
-
-                    </div>
-
-                    <!--PARTE 2-->
-                    <div id="descripParte_2">
-                        <p>RADIO BLUETOOTH</p>
-                    </div>
-                    <hr id="conectorParte2">
-                    <div class="partesCar" id="parte_2" style=" 
-                         float: left;
-                         background-color: rgba(255, 255, 255, 0.34);
-                         position: absolute;
-                         border-radius: 50%;
-                         margin-left: 45.2%;
-                         margin-top: 9.5%;
-
-                         ">
-
-                    </div>
-
-                    <!--PARTE 3-->
-                    <div id="descripParte_3">
-                        <!--<p>AIRBAG CONDUCTOR</p>-->
-                        <p>AIRE ACONDICIONADO</p>
-                    </div>
-                    <hr id="conectorParte3">
-                    <div  class="partesCar" id="parte_3" style=" 
-                          float: left;
-                          background-color: rgba(255, 255, 255, 0.34);
-                          position: absolute;
-                          border-radius: 50%;
-                          margin-left: 53%;
-                          margin-top: 8.5%;
-                          ">
-
-                    </div>
-
-                    <!--PARTE 4-->
-                    <div id="descripParte_4">
-                        <p>AIRE ACONDICIONADO</p>
-                    </div>
-                    <hr id="conectorParte4">
-                    <div  class="partesCar" id="parte_4" style=" 
-                          float: left;
-                          background-color: rgba(255, 255, 255, 0.34);
-                          position: absolute;
-                          border-radius: 50%;
-                          margin-left: 59%;
-                          margin-top: 11%;
-                          ">
-
-                    </div>
-
-                    <!--PARTE 5-->
-                    <div id="descripParte_5">
-                        <p>ALARMA Y BLOQUEO CENTRAL</p>
-                    </div>
-                    <hr id="conectorParte5">
-                    <div  class="partesCar" id="parte_5" style=" 
-                          float: left;
-                          background-color: rgba(255, 255, 255, 0.34);
-                          position: absolute;
-                          border-radius: 50%;
-                          margin-left: 34%;
-                          margin-top: 13%;
-                          ">
-
-                    </div>
-
-                    <!--PARTE 6-->
-                    <div id="descripParte_6">
-                        <p>EXPLORADORAS</p>
-                    </div>
-                    <hr id="conectorParte6">
-                    <div  class="partesCar" id="parte_6" style=" 
-                          float: left;
-                          background-color: rgba(255, 255, 255, 0.34);
-                          position: absolute;
-                          border-radius: 50%;
-                          margin-left: 50.5%;
-                          margin-top: 21%;
-                          ">
-
-                    </div>
-
-
-                    <img src="src/img/eon-tech/CARRO-SKILLS.png" alt="EON TECH nuevo Hyundai" class="center-block img-responsive"/>
-
+                    
                     <div id="btnsImgHome2">
 
-                        <a href="https://www.hyundai.com.co/vehiculo/eon" target="_blank" class="btn  " id="btnConoce2">CONÓCELO AQUÍ</a>
+                        <a href="<?php echo utf8_encode($rowSeccion2["boton_1_url_seccion_2"]); ?>" target="_blank" class="btn  " id="btnConoce2">CONÓCELO AQUÍ</a>
                         <br>
                         <a class="btn " id="btnComparte2" data-toggle="modal" data-target="#modalCompartir">COMPARTIR</a>
 
@@ -336,8 +232,8 @@ $detect = new Mobile_Detect();
         <div class="row" id="divRowImg">
             <div class="col-md-12">
                 <hr id="hrCaracteristicas">
-                <img id="skills-produxto" src="src/img/home/skills-produxto-clara.png" alt="EON TECH nuevo Hyundai" class="center-block img-responsive">
-                <img id="skills-produxto-3x3" src="src/img/home/skill-produxto-3x3-otras-seciones.png" alt="EON TECH nuevo Hyundai" class="center-block img-responsive"/>
+                <img id="skills-produxto" src="<?php echo $rowSeccion2["imagen_productos_seccion_2"]; ?>" alt="EON TECH nuevo Hyundai" class="center-block img-responsive">
+                <img id="skills-produxto-3x3" src="<?php echo $rowSeccion2["imagen_productos_mobile_seccion_2"]; ?>" alt="EON TECH nuevo Hyundai" class="center-block img-responsive"/>
                 <hr id="hrCaracteristicas">
             </div>
         </div>
@@ -356,26 +252,26 @@ $detect = new Mobile_Detect();
                         <table id="tg-ELLii" class="tg">
                             <tr>
                                 <th class="tg-031e">Tipo</th>
-                                <th class="tg-s6z2">Epsilone 0,8 MPI (Gasolina)</th>
+                                <th class="tg-s6z2"><?php echo utf8_encode($rowSeccion2["tabla_texto_1_seccion_2"]); ?></th>
                             </tr>
                             <tr>
                                 <td class="tg-031e">Cilindrada (C.C)</td>
-                                <td class="tg-s6z2">814</td>
+                                <td class="tg-s6z2"><?php echo utf8_encode($rowSeccion2["tabla_texto_2_seccion_2"]); ?></td>
                             </tr>
                             <tr>
                                 <td class="tg-031e">Cilindros</td>
-                                <td class="tg-s6z2">3</td>
+                                <td class="tg-s6z2"><?php echo utf8_encode($rowSeccion2["tabla_texto_3_seccion_2"]); ?></td>
                             </tr>
                             <tr>
                                 <td class="tg-031e">Transmisión</td>
-                                <td class="tg-s6z2">5 Velocidades</td>
+                                <td class="tg-s6z2"><?php echo utf8_encode($rowSeccion2["tabla_texto_4_seccion_2"]); ?></td>
                             </tr>
                             <tr>
                                 <td class="tg-031e">Frenos</td>
-                                <td class="tg-s6z2">Frenos de disco delanteros, traseros de tambor</td>
+                                <td class="tg-s6z2"><?php echo utf8_encode($rowSeccion2["tabla_texto_5_seccion_2"]); ?></td>
                             </tr>
                         </table>
-                        <a class="btn" href="https://www.hyundai.com.co/vehiculo/eon" target="_blank" id="btnConoceMasAqui2">CONOCE MÁS AQUÍ</a>
+                        <a class="btn" href="<?php echo $rowSeccion2["boton_3_url_seccion_2"]; ?>" target="_blank" id="btnConoceMasAqui2">CONOCE MÁS AQUÍ</a>
                     </div>
                     <script type="text/javascript" charset="utf-8">var TgTableSort = window.TgTableSort || function (n, t) {
                             "use strict";
