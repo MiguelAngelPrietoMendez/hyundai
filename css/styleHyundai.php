@@ -26,6 +26,10 @@ $rowSeccion2 = $resultSeccion2->fetch_array();
 $resultSeccion3 = $mysqli->query("SELECT * FROM tbl_seccion_3 where id_plantilla=" . $rowPlantilla["id_plantillas"] . "");
 $rowSeccion3 = $resultSeccion3->fetch_array();
 
+/*  SECCION 4 - QUERY  */
+$resultSeccion4 = $mysqli->query("SELECT * FROM tbl_seccion_4 where id_plantilla=" . $rowPlantilla["id_plantillas"] . "");
+$rowSeccion4 = $resultSeccion4->fetch_array();
+
 header("Content-type: text/css; charset: UTF-8");
 ?>
 @font-face {
@@ -217,22 +221,20 @@ padding-left: 40px;
 }
 
 
-#btnTecnologia {
-
+#btnTecnologia 
+{
 border-style: solid;
-border-color: rgba(238, 238, 238, 0.5);
+border-color: <?php echo $rowSeccion4["titulo_color_borde_seccion_4"]; ?>;
 border-width: 1px;
-
-background-color: rgb(2, 2, 2);
-color: #E9F2EF;
+background-color: <?php echo $rowSeccion4["titulo_color_fondo_seccion_4"]; ?>;
+color: <?php echo $rowSeccion4["titulo_color_texto_seccion_4"]; ?>;
 border-radius: 0;
 padding-top: 4px;
 padding-bottom: 4px;
 padding-right: 40px;
 padding-left: 40px;
-
 }
-
+ 
 
 
 #btnMundoEon 
@@ -1010,13 +1012,16 @@ width: 16%;
 #divRowImgsMusic
 {
 padding-bottom: 1%;
-width: 88%;      margin: 0 auto;
+width: 88%;     
+margin: 0 auto;
 }
 
-#divRowImgsMusic2{
+#divRowImgsMusic2
+{
 display: none;
 padding-bottom: 1%;
-width: 88%;      margin: 0 auto;
+width: 88%;      
+margin: 0 auto;
 }
 
 #divBtnCotizaMusic {
@@ -1031,34 +1036,31 @@ width: 88%;      margin: 0 auto;
 #contenedorImgTecnologia2
 {
 display: none;
-width: 88%;      margin: 0 auto;
+width: 88%;     
+margin: 0 auto;
 }
 
 
 
-#h4ContenidoTecnologia{
-
-
-color: #fff;
+#h4ContenidoTecnologia
+{
+color: <?php echo $rowSeccion4["contenidos_titulo_color_texto_seccion_4"]; ?>;
 font-size: 17px;
 margin-top: 0px;
 }
 
-#hrContenidoTecnologia{
-
-
+#hrContenidoTecnologia
+{
 margin-top: 7px;      
 margin-bottom: 1px;
-border-top: 1px solid #AFD135;
+border-top: 1px solid <?php echo $rowSeccion4["contenidos_lineas_texto_seccion_4"]; ?>;
 }
 
 
 
 #pContenidoTecnologia
 {
-
-
-color: #eee;
+    color: <?php echo $rowSeccion4["contenidos_descripcion_color_texto_seccion_4"]; ?>;
 }
 
 
@@ -1095,10 +1097,9 @@ margin: 0 0 6px;
 
 #btnContenidoTecnologia
 {
-color: #eee;
-background-color: #03519A;
-border-color: #03519A;
-
+color: <?php echo $rowSeccion4["contenidos_boton_color_texto_seccion_4"]; ?>;
+background-color:  <?php echo $rowSeccion4["contenidos_boton_color_fondo_seccion_4"]; ?>;
+border-color:  <?php echo $rowSeccion4["contenidos_boton_color_borde_seccion_4"]; ?>;
 border-radius: 0px;
 font-size: 14px;
 padding: 0;
@@ -1257,18 +1258,18 @@ width: 91%;
 
 margin: 0 auto;
 }
-#rowImgTextTecnologia2{
+#rowImgTextTecnologia2
+{
 display: none;
 width: 91%;
-
 margin: 0 auto;
 }
 
-#hrSepararCol-Tecnologia{
+#hrSepararCol-Tecnologia
+{
 margin-top: 13px;
 margin-bottom: 20px;
-
-border-top: 1px solid rgba(119, 115, 115, 0.35);
+border-top: 1px solid <?php echo $rowSeccion4["lineas_contenidos_seccion_4"]; ?>;
 }
 
 #rowBtnsTecnologia1,#rowBtnsTecnologia2
@@ -1305,7 +1306,7 @@ padding-right: 0;
 }
 
 #btnContenidoTecnologia:hover {
-background-color: #000;
+background-color:  <?php echo $rowSeccion4["contenidos_boton_color_hover_seccion_4"]; ?>;
 }
 
 
