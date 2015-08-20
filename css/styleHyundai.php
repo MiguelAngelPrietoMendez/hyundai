@@ -276,9 +276,9 @@ margin-left: -62px;
 border-style: solid;
 border-width: 1px;
 margin-right: 0px;
-background-color: rgb(2, 2, 2);
-border-color: rgb(120, 120, 120);
-color: #E9F2EF;
+background-color: <?php echo $rowSeccion4["boton_2_color_fondo_seccion_4"]; ?>;
+border-color: <?php echo $rowSeccion4["boton_2_color_borde_seccion_4"]; ?>;
+color: <?php echo $rowSeccion4["boton_2_color_texto_seccion_4"]; ?>;
 border-radius: 0;
 padding-top: 3px;
 padding-bottom: 3px;
@@ -1421,22 +1421,26 @@ color: <?php echo $rowSeccion3["titulo_2_color_texto_seccion_3"]; ?>;
 border-radius: 0;
 }
 
-#btnCotizaloAquiTecnologia {
-
-border-color: #03519A;
+#btnCotizaloAquiTecnologia 
+{
+border-color: <?php echo $rowSeccion4["boton_1_color_borde_seccion_4"]; ?>;
 border-width: 1px;
-background-color: #020202;
-color: #A6E53F;
+background-color: <?php echo $rowSeccion4["boton_1_color_fondo_seccion_4"]; ?>;
+color: <?php echo $rowSeccion4["boton_1_color_texto_seccion_4"]; ?>;
 border-radius: 0;
+float: left;           
+margin-top: 2.9%;      
+position: absolute;      
+margin-left: -49%;      
+margin-left: -50%;      
+padding-top: 3px;      
+padding-bottom: 3px;     
+padding-right: 8px;     
+padding-left: 8px;      
+font-size: 13px;  
+}
 
-padding-top: 3px;
-padding-bottom: 3px;
-padding-right: 8px;
-padding-left: 8px;
-float: left;      position: absolute;      
-margin-top: 2.9%;      position: absolute;      margin-left: -49%;      margin-left: -50%;      padding-top: 3px;      padding-bottom: 3px;      padding-right: 8px;      padding-left: 8px;      font-size: 13px;  }
-
-
+ 
 #rowImgTextTecnologiaTable{
 display: none;
 }

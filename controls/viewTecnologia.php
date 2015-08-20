@@ -153,8 +153,8 @@ $rowSeccion4 = $resultSeccion4->fetch_array();
     <div class="container">
         <div class="row" id="rowBtnsTecnologia1">
             <div class="col-md-12 text-center" id="divBtnCampanaTit">
-                <a class="btn btn-default btn-lg" href="https://www.hyundai.com.co/cotizador/eon​" target="_blank" id="btnCotizaloAquiTecnologia">COTIZALO AQUÍ</a>
-                <a class="btn btn-default btn-lg" id="btnVerMasFotos"><img src="src/img/galeria/ver-mas-fotos.png" alt="EON TECH nuevo Hyundai"/></a>
+                <a class="btn btn-default btn-lg" href="<?php echo $rowSeccion4["boton_1_url_seccion_4"]; ?>" target="_blank" id="btnCotizaloAquiTecnologia">COTIZALO AQUÍ</a>
+                <a class="btn btn-default btn-lg" id="btnVerMasFotos"><img src="<?php echo $rowSeccion4["boton_flecha_abajo_seccion_4"]; ?>" alt="EON TECH nuevo Hyundai"/></a>
                 <a class="btn btn-default btn-lg" id="btnCompartir" data-toggle="modal" data-target="#modalCompartir">COMPARTIR</a>
                 <hr id="hr">
             </div>
@@ -168,8 +168,8 @@ $rowSeccion4 = $resultSeccion4->fetch_array();
     <div class="container">
         <div class="row" id="rowBtnsTecnologia2">
             <div class="col-md-12 text-center" id="divBtnCampanaTit">
-                <a href="https://www.hyundai.com.co/cotizador/eon​" target="_blank" class="btn btn-default btn-lg" id="btnCotizaloAquiTecnologia">COTIZALO AQUÍ</a>
-                <a class="btn btn-default btn-lg" id="btnVerFotosAnteriores"><img src="src/img/galeria/ver-mas-fotos-arriba.png" alt="EON TECH nuevo Hyundai"/></a>
+                <a href="<?php echo $rowSeccion4["boton_2_url_seccion_4"]; ?>" target="_blank" class="btn btn-default btn-lg" id="btnCotizaloAquiTecnologia">COTIZALO AQUÍ</a>
+                <a class="btn btn-default btn-lg" id="btnVerFotosAnteriores"><img src="<?php echo $rowSeccion4["boton_flecha_arriba_seccion_4"]; ?>" alt="EON TECH nuevo Hyundai"/></a>
                 <a class="btn btn-default btn-lg" id="btnCompartir" data-toggle="modal" data-target="#modalCompartir">COMPARTIR</a>
                 <hr id="hr">
             </div>
