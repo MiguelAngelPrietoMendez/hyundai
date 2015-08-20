@@ -35,11 +35,11 @@ and open the template in the editor.
         <script src="js/jsHyundai.js" type="text/javascript"></script>
           
 
-        <link href="http://www.youoneagency.com/hyundai/src/img/galeria/foto-7-expandidas.png" rel="image_src" />
+        <link href="http://www.youoneagency.com/hyundai/src/img/galeria/foto-8-expandidas.png" rel="image_src" />
         <meta property="og:title" content="EON TECH Nueva edición de HYUNDAI" />
         <meta property="og:description" content="Para ti que necesitas estar siempre conectado te presentamos EON TECH una nueva edición de HYUNDAI. Haz clic aquí y conoce lo que HYUNDAI tiene preparado para ti." />
         <meta property="og:url" content="http://www.youoneagency.com/hyundai/galeria_8.php" />
-        <meta property="og:image" content="http://www.youoneagency.com/hyundai/src/img/galeria/foto-7-expandidas.png" />
+        <meta property="og:image" content="http://www.youoneagency.com/hyundai/src/img/galeria/foto-8-expandidas.png" />
 
 
       

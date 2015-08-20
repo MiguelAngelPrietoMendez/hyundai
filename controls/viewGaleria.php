@@ -1,25 +1,29 @@
+<?php
+$resultSeccion5 = $mysqli->query("SELECT * FROM tbl_seccion_5 where id_plantilla=" . $rowPlantilla["id_plantillas"] . "");
+$rowSeccion5 = $resultSeccion5->fetch_array();
+?>
 
 
 <br><br>
           <div class="col-md-12 text-center" id="divBtnCampanaTit">
-            <a class="btn btn-default btn-lg" id="btnGaleria">GALERÍA</a>
+              <a class="btn btn-default btn-lg" id="btnGaleria"><?php echo utf8_encode($rowSeccion5["titulo_texto_seccion_5"]); ?></a>
             <hr id="hr">
           </div>
         <div class="section">
       <div class="container">
         <div class="row" id="rowImgTextTecnologia">
             <div class="col-md-6">
-                <img class="img-responsive" id="textTecnologia" src="src/img/tecnologia/texto-1.png" alt="EON TECH nuevo Hyundai"/>
+                <img class="img-responsive" id="textTecnologia" src="<?php echo $rowSeccion5["imagen_1_seccion_5"]; ?>" alt="EON TECH nuevo Hyundai"/>
             </div>
             <div class="col-md-6">
-                <img class="img-responsive" id="imgTecnologia" src="src/img/tecnologia/logo-eon-tech.png" alt="EON TECH nuevo Hyundai"/>
+                <img class="img-responsive" id="imgTecnologia" src="<?php echo $rowSeccion5["imagen_2_seccion_5"]; ?>" alt="EON TECH nuevo Hyundai"/>
             </div>
            
         </div>
           <div class="row" id="rowImgTextTecnologia2">
             
               <center>
-                <img class="img-responsive" id="textTecnologia" src="src/img/mundo-eon/skills-tablet.png" alt="EON TECH nuevo Hyundai"/>
+                <img class="img-responsive" id="textTecnologia" src="<?php echo $rowSeccion5["imagen_12_mobile_seccion_5"]; ?>" alt="EON TECH nuevo Hyundai"/>
             </center>
         </div>
       </div>
@@ -36,49 +40,42 @@
                 <div id="contenedorSlider">
                     <div id="divGaleri_1">
                         <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="This is my title" data-caption="Some lovely red flowers" data-image="src/img/galeria/foto-1.jpg" data-target="#image-gallery" >
-                            
-<!--                            <video width="320" height="240" controls>
-                                <source src="../src/video/home.mp4" type="video/mp4">
-                                Your browser does not support the <code>video</code> tag.
-                            </video>-->
-                            
-                            <img id="Galeri_1" src="src/img/galeria/foto-1.jpg" alt="EON TECH nuevo Hyundai"/>
-                            <img id="Galeri_1_columnas" src="src/img/galeria/2-columnas/foto-1.png" alt="EON TECH nuevo Hyundai"/>
-                        
+                            <img id="Galeri_1" src="<?php echo $rowSeccion5["galeria_img_1_seccion_5"]; ?>" alt="EON TECH nuevo Hyundai"/>
+                            <img id="Galeri_1_columnas" src="<?php echo $rowSeccion5["galeria_img_1_movil_seccion_5"]; ?>" alt="EON TECH nuevo Hyundai"/>
                         </a>
                     </div>
                     <div id="divGaleri_2" >
                        <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="This is my title" data-caption="Some lovely red flowers" data-image="src/img/galeria/foto-2-expandidas.jpg" data-target="#image-gallery" >
 
-                           <img id="Galeri_2" src="src/img/galeria/foto-2.jpg" alt="EON TECH nuevo Hyundai"/>
-                           <img id="Galeri_2_columnas" src="src/img/galeria/2-columnas/foto-2.png" alt="EON TECH nuevo Hyundai"/>
+                           <img id="Galeri_2" src="<?php echo $rowSeccion5["galeria_img_2_seccion_5"]; ?>" alt="EON TECH nuevo Hyundai"/>
+                           <img id="Galeri_2_columnas" src="<?php echo $rowSeccion5["galeria_img_2_movil_seccion_5"]; ?>" alt="EON TECH nuevo Hyundai"/>
                         </a>
                            
                     </div>
                     <div id="divGaleri_3">
                        <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="This is my title" data-caption="Some lovely red flowers" data-image="src/img/galeria/foto-3-expandidas.jpg" data-target="#image-gallery" >
 
-                           <img  id="Galeri_3" src="src/img/galeria/foto-3.jpg" alt="EON TECH nuevo Hyundai"/>
-                           <img id="Galeri_3_columnas" src="src/img/galeria/2-columnas/foto-3.png" alt="EON TECH nuevo Hyundai"/>
+                           <img  id="Galeri_3" src="<?php echo $rowSeccion5["galeria_img_3_seccion_5"]; ?>" alt="EON TECH nuevo Hyundai"/>
+                           <img id="Galeri_3_columnas" src="<?php echo $rowSeccion5["galeria_img_3_movil_seccion_5"]; ?>" alt="EON TECH nuevo Hyundai"/>
                         </a>
                     </div>
                     <div id="divGaleri_4">
                         <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="This is my title" data-caption="Some lovely red flowers" data-image="src/img/galeria/foto-4-expandidas.jpg" data-target="#image-gallery" >
 
-                            <img id="Galeri_4" src="src/img/galeria/foto-4.jpg" alt="EON TECH nuevo Hyundai"/>   
-                            <img id="Galeri_4_columnas" src="src/img/galeria/2-columnas/foto-4.png" alt="EON TECH nuevo Hyundai"/>
+                            <img id="Galeri_4" src="<?php echo $rowSeccion5["galeria_img_4_seccion_5"]; ?>" alt="EON TECH nuevo Hyundai"/>   
+                            <img id="Galeri_4_columnas" src="<?php echo $rowSeccion5["galeria_img_4_movil_seccion_5"]; ?>" alt="EON TECH nuevo Hyundai"/>
                         </a>
                     </div>
                     <div id="divGaleri_5">
                        <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="This is my title" data-caption="Some lovely red flowers" data-image="src/img/galeria/foto-5-expandidas.jpg" data-target="#image-gallery" >
-                           <img  id="Galeri_5" src="src/img/galeria/foto-5.jpg" alt="EON TECH nuevo Hyundai"/>   
-                            <img id="Galeri_5_columnas" src="src/img/galeria/2-columnas/foto-5.png" alt="EON TECH nuevo Hyundai"/>
+                           <img  id="Galeri_5" src="<?php echo $rowSeccion5["galeria_img_5_seccion_5"]; ?>" alt="EON TECH nuevo Hyundai"/>   
+                            <img id="Galeri_5_columnas" src="<?php echo $rowSeccion5["galeria_img_5_movil_seccion_5"]; ?>" alt="EON TECH nuevo Hyundai"/>
                         </a>
                     </div>
                     <div id="divGaleri_6">
                        <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="This is my title" data-caption="Some lovely red flowers" data-image="src/img/galeria/foto-1-expandidas.jpg" data-target="#image-gallery" >
-                        <img  id="Galeri_6" src="src/img/galeria/foto-6.jpg" alt="EON TECH nuevo Hyundai"/>   
-                            <img id="Galeri_6_columnas" src="src/img/galeria/2-columnas/foto-6.png" alt="EON TECH nuevo Hyundai"/>
+                        <img  id="Galeri_6" src="<?php echo $rowSeccion5["galeria_img_6_seccion_5"]; ?>" alt="EON TECH nuevo Hyundai"/>   
+                            <img id="Galeri_6_columnas" src="<?php echo $rowSeccion5["galeria_img_6_movil_seccion_5"]; ?>" alt="EON TECH nuevo Hyundai"/>
                         </a>
                     </div>
               </div>
@@ -87,41 +84,41 @@
                 <div id="contenedorSlider2">
                 <div id="divGaleri_1">
                     <a class="thumbnail2" href="#" data-image-id2="" data-toggle="modal" data-title="This is my title" data-caption="Some lovely red flowers" data-image="src/img/galeria/foto-1-expandidas.jpg" data-target="#image-gallery2" >
-                        <img id="Galeri_7" src="src/img/galeria/foto-1.jpg" alt="EON TECH nuevo Hyundai"/>
-                        <img id="Galeri_7_columnas" src="src/img/galeria/2-columnas/foto-1.png" alt="EON TECH nuevo Hyundai"/>
+                        <img id="Galeri_7" src="<?php echo $rowSeccion5["galeria_img_7_seccion_5"]; ?>" alt="EON TECH nuevo Hyundai"/>
+                        <img id="Galeri_7_columnas" src="<?php echo $rowSeccion5["galeria_img_7_movil_seccion_5"]; ?>" alt="EON TECH nuevo Hyundai"/>
                         </a>
                 </div>
                 <div id="divGaleri_2" >
                    <a class="thumbnail2" href="#" data-image-id2="" data-toggle="modal" data-title="This is my title" data-caption="Some lovely red flowers" data-image="src/img/galeria/foto-2-expandidas.jpg" data-target="#image-gallery2" >
                                 
-                       <img id="Galeri_8" src="src/img/galeria/foto-2.jpg" alt="EON TECH nuevo Hyundai"/>
-                        <img id="Galeri_8_columnas" src="src/img/galeria/2-columnas/foto-2.png" alt="EON TECH nuevo Hyundai"/>
+                       <img id="Galeri_8" src="<?php echo $rowSeccion5["galeria_img_8_seccion_5"]; ?>" alt="EON TECH nuevo Hyundai"/>
+                        <img id="Galeri_8_columnas" src="<?php echo $rowSeccion5["galeria_img_8_movil_seccion_5"]; ?>" alt="EON TECH nuevo Hyundai"/>
                         </a>
                 </div>
                 <div id="divGaleri_3">
                    <a class="thumbnail2" href="#" data-image-id2="" data-toggle="modal" data-title="This is my title" data-caption="Some lovely red flowers" data-image="src/img/galeria/foto-2-expandidas.jpg" data-target="#image-gallery2" >
                                 
-                       <img  id="Galeri_9" src="src/img/galeria/foto-2.jpg" alt="EON TECH nuevo Hyundai"/>
-                        <img id="Galeri_9_columnas" src="src/img/galeria/2-columnas/foto-3.png" alt="EON TECH nuevo Hyundai"/>
+                       <img  id="Galeri_9" src="<?php echo $rowSeccion5["galeria_img_9_seccion_5"]; ?>" alt="EON TECH nuevo Hyundai"/>
+                        <img id="Galeri_9_columnas" src="<?php echo $rowSeccion5["galeria_img_9_movil_seccion_5"]; ?>" alt="EON TECH nuevo Hyundai"/>
                         </a>
                 </div>
                 <div id="divGaleri_4">
                     <a class="thumbnail2" href="#" data-image-id2="" data-toggle="modal" data-title="This is my title" data-caption="Some lovely red flowers" data-image="src/img/galeria/foto-2-expandidas.jpg" data-target="#image-gallery2" >
                                 
-                        <img id="Galeri_10" src="src/img/galeria/foto-2.jpg" alt="EON TECH nuevo Hyundai"/>
-                        <img id="Galeri_10_columnas" src="src/img/galeria/2-columnas/foto-4.png" alt="EON TECH nuevo Hyundai"/>
+                        <img id="Galeri_10" src="<?php echo $rowSeccion5["galeria_img_10_seccion_5"]; ?>" alt="EON TECH nuevo Hyundai"/>
+                        <img id="Galeri_10_columnas" src="<?php echo $rowSeccion5["galeria_img_10_movil_seccion_5"]; ?>" alt="EON TECH nuevo Hyundai"/>
                         </a>
                 </div>
                 <div id="divGaleri_5">
                    <a class="thumbnail2" href="#" data-image-id2="" data-toggle="modal" data-title="This is my title" data-caption="Some lovely red flowers" data-image="src/img/galeria/foto-5-expandidas.jpg" data-target="#image-gallery2" >
-                       <img  id="Galeri_11" src="src/img/galeria/foto-5.jpg" alt="EON TECH nuevo Hyundai"/>
-                        <img id="Galeri_11_columnas" src="src/img/galeria/2-columnas/foto-5.png" alt="EON TECH nuevo Hyundai"/>
+                       <img  id="Galeri_11" src="<?php echo $rowSeccion5["galeria_img_11_seccion_5"]; ?>" alt="EON TECH nuevo Hyundai"/>
+                        <img id="Galeri_11_columnas" src="<?php echo $rowSeccion5["galeria_img_11_movil_seccion_5"]; ?>" alt="EON TECH nuevo Hyundai"/>
                         </a>
                 </div>
                 <div id="divGaleri_6">
                    <a class="thumbnail2" href="#" data-image-id2="" data-toggle="modal" data-title="This is my title" data-caption="Some lovely red flowers" data-image="src/img/galeria/foto-1-expandidas.jpg" data-target="#image-gallery2" >
-                    <img  id="Galeri_12" src="src/img/galeria/foto-6.jpg" alt="EON TECH nuevo Hyundai"/>
-                        <img id="Galeri_12_columnas" src="src/img/galeria/2-columnas/foto-6.png" alt="EON TECH nuevo Hyundai"/>
+                    <img  id="Galeri_12" src="<?php echo $rowSeccion5["galeria_img_12_seccion_5"]; ?>" alt="EON TECH nuevo Hyundai"/>
+                        <img id="Galeri_12_columnas" src="<?php echo $rowSeccion5["galeria_img_12_movil_seccion_5"]; ?>" alt="EON TECH nuevo Hyundai"/>
                         </a>
                 </div>
               </div>
@@ -135,7 +132,7 @@
             <div class="row" id="rowBtnVerGaleria">
               <div class="col-md-12 text-center" id="divBtnGaleriaMostrar">
                   
-                <a class="btn btn-default btn-lg" id="btnVerMasFotos"><img src="src/img/galeria/ver-mas-fotos.png" alt="EON TECH nuevo Hyundai"/></a>
+                <a class="btn btn-default btn-lg" id="btnVerMasFotos"><img src="<?php echo $rowSeccion5["boton_flecha_abajo_seccion_5"]; ?>" alt="EON TECH nuevo Hyundai"/></a>
                 <hr>
               </div>
             </div> 
@@ -148,7 +145,7 @@
             <div class="row" id="rowBtnVerGaleria">
               <div class="col-md-12 text-center" id="divBtnGaleriaMostrar">
                   
-                <a class="btn btn-default btn-lg" id="btnVerFotosAnteriores"><img src="src/img/galeria/ver-mas-fotos-arriba.png" alt="EON TECH nuevo Hyundai"/></a>
+                <a class="btn btn-default btn-lg" id="btnVerFotosAnteriores"><img src="<?php echo $rowSeccion5["boton_flecha_arriba_seccion_5"]; ?>" alt="EON TECH nuevo Hyundai"/></a>
                 <hr>
               </div>
             </div>

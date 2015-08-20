@@ -30,6 +30,10 @@ $rowSeccion3 = $resultSeccion3->fetch_array();
 $resultSeccion4 = $mysqli->query("SELECT * FROM tbl_seccion_4 where id_plantilla=" . $rowPlantilla["id_plantillas"] . "");
 $rowSeccion4 = $resultSeccion4->fetch_array();
 
+/*  SECCION 5 - QUERY  */
+$resultSeccion5 = $mysqli->query("SELECT * FROM tbl_seccion_5 where id_plantilla=" . $rowPlantilla["id_plantillas"] . "");
+$rowSeccion5 = $resultSeccion5->fetch_array();
+
 header("Content-type: text/css; charset: UTF-8");
 ?>
 @font-face {
@@ -104,20 +108,19 @@ width: 2%;
 width: 32%;
 border-style: solid;
 border-width: 1px;
-color: #E9F2EF;
+color: <?php echo $rowSeccion5["modals_boton_color_texto_seccion_5"]; ?>;
 border-radius: 0;
 padding-top: 4px;
 padding-bottom: 4px;
 padding-right: 40px;
 padding-left: 40px;
-
 margin-bottom: 5px;
 margin-top: 8px;
 font-size: 15px;
 font-weight: bold;
 letter-spacing: 1px;
-background-color: rgba(2, 2, 2, 0.79);
-border-color: rgba(120, 120, 120, 0.34);
+background-color: <?php echo $rowSeccion5["modals_boton_color_fondo_seccion_5"]; ?>;
+border-color: <?php echo $rowSeccion5["modals_boton_color_borde_seccion_5"]; ?>;
 }
 
 #divNav{
@@ -242,7 +245,9 @@ padding-left: 40px;
 margin-top: 5px;
 position: absolute;
 margin-left: -10%;
-border-style: solid;    border-color: rgba(238, 238, 238, 0.5);    border-width: 1px;    
+border-style: solid;    
+border-color: rgba(238, 238, 238, 0.5);   
+border-width: 1px;    
 background-color: rgb(2, 2, 2);
 color: #E9F2EF;
 border-radius: 0;
@@ -250,22 +255,20 @@ padding-top: 4px;
 padding-bottom: 4px;
 padding-right: 40px;
 padding-left: 40px;
-
 }
 
 #btnGaleria 
 {
-
-border-style: solid;    border-color: rgba(238, 238, 238, 0.5);    border-width: 1px;    
-
-background-color: rgb(2, 2, 2);
-color: #E9F2EF;
+border-style: solid;    
+border-color: <?php echo $rowSeccion5["titulo_color_borde_seccion_5"]; ?>; 
+border-width: 1px;    
+background-color: <?php echo $rowSeccion5["titulo_color_fondo_seccion_5"]; ?>;
+color: <?php echo $rowSeccion5["titulo_color_texto_seccion_5"]; ?>;
 border-radius: 0;
 padding-top: 4px;
 padding-bottom: 4px;
 padding-right: 40px;
 padding-left: 40px;
-
 }
 
 #btnCompartir 
