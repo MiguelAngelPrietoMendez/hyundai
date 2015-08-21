@@ -21,7 +21,7 @@
 			<img src="img/logo.png" alt="">
 		</div>
 		<div class="grid_9" id="grid2">
-			<p class="text">INGRESA TUS DATOS</p>
+			<p class="text">INGRESA TUS DATOS:</p>
 			<hr>
 		</div>
 		  <br><br><br><br>
