@@ -9,18 +9,18 @@ $itMail = $mysqli->real_escape_string($_POST["itMail"]);//validar sql injection
 $itPass = $mysqli->real_escape_string($_POST["itPass"]);//validar sql injection
 
 //consulta si exite el usuario
-$result = $mysqli->query("SELECT * FROM tbl_users WHERE usuario='" . $itMail . "'  AND contrasena='" . $itPass . "'");
+$result = $mysqli->query("SELECT * FROM tbl_usuarios WHERE correo_usuario='" . $itMail . "'  AND contrasena='" . $itPass . "'");
 $total = $result->num_rows;
-if ($total > 0) {
+if ($total > 0) 
+{
     $row = $result->fetch_array();
 
-    $_SESSION['id'] = $row['id'];
+    $_SESSION['id_usuario'] = $row['id_usuario'];
     $_SESSION['nombre_usuario'] = $row["nombre_usuario"];
-    $_SESSION['usuario'] = $row["usuario"];
 
-    header("Location: ../alDia.php");
+    header("Location: ../administrador/php/crear.php");
 } else {
     $_SESSION['errorSesion'] = 1;
-    header("Location: ../index.php");
+    header("Location: ../administrador/login.php");
 }
 ?>

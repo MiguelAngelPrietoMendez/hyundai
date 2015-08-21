@@ -1,3 +1,18 @@
+<?php
+session_start();
+if (isset($_SESSION['nombre_usuario']) && isset($_SESSION['id_usuario'])) 
+{
+    include '../models/access_db.php'; //incluimos el acceso a la base de datos
+
+    if(isset($_POST["plantillaActual"]))
+    {
+         $_SESSION['id_plantilla'] = 1;
+    }elseif(isset($_SESSION["plantillaCreada"]) || isset($_POST["plantillaCreada"]))
+    {
+         $_SESSION['id_plantilla'] = 2;
+    }
+    ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -101,3 +116,8 @@
 	</footer>
 </body>
 </html>
+<?php
+} else {
+    header("Location: login.php");
+}
+?>

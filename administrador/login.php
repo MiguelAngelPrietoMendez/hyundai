@@ -1,3 +1,7 @@
+<?php
+session_start();
+if (!isset($_SESSION['nombre_usuario']) && !isset($_SESSION['id_usuario'])) {
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,12 +31,12 @@
 		  <br><br><br><br>
 		  <div class="clear"></div><!--Second row-->
 		  <div class="loginContainer">
-		  	<form action="#" method="post" class="ssTitle" autocomplete="off">
+                      <form action="../models/create_sesion.php" method="post" class="ssTitle" autocomplete="off">
 		  		<p class="ssTitle">INGRESAR</p>
 		  		<label class="loginForm" for="user"><i>Usuario:</i></label>
-		  		<input class="loginForm" type="text" name="user">
+                                <input required class="loginForm" type="email" name="itMail">
 		  		<label class="loginForm" for="pass"><i>Contraseña:</i></label>
-		  		<input class="loginForm" type="password" name="pass">
+		  		<input required class="loginForm" type="password" name="itPass">
 		  		<button type="submit" class="activeSection" id="loginSubmit">INGRESAR</button>
 		  	</form><br>
 		  	<center><a href="#" style="color: #97A543"><u>recordar contraseña</u></a></center>
@@ -44,3 +48,8 @@
 	</footer>
 </body>
 </html>
+<?php
+} else {
+    header("Location: php/crear.php");
+}
+?>

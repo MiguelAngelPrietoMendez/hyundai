@@ -1,5 +1,12 @@
 <?php
-include '../models/access_db.php'; //incluimos el acceso a la base de datos
+session_start();
+if (isset($_SESSION['nombre_usuario']) && isset($_SESSION['id_usuario'])) {
+include '../../models/access_db.php'; //incluimos el acceso a la base de datos
+
+if (isset($_SESSION['id_plantilla'])) 
+{
+    unset($_SESSION["id_plantilla"]);
+}
 ?>
 <html>
     <head>
@@ -14,7 +21,7 @@ include '../models/access_db.php'; //incluimos el acceso a la base de datos
             $resultPlantillaActual = $mysqli->query("SELECT * FROM tbl_plantillas WHERE id_plantillas=1");
             $rowPlantillaActual = $resultPlantillaActual->fetch_array();
             ?>
-            <form action="index.php" method="POST">
+            <form action="../index.php" method="POST">
                 EDITAR PLANTILLA ACTUAL <?php echo "<strong>".$rowPlantillaActual["nombre_plantillas"]."</strong>" ;?>
                 <input type="hidden" name="plantillaActual" value="1" />
                 <input type="submit" value="EDITAR" />
@@ -29,16 +36,16 @@ include '../models/access_db.php'; //incluimos el acceso a la base de datos
             if ($rowPlantillaCreada > 0) 
             {
                 ?>
-                <form action="index.php" method="POST">
+                <form action="../index.php" method="POST">
                     SEGUIR EDITANDO LA NUEVA PLANTILLA <?php echo "<strong>".$rowPlantilla["nombre_plantillas"]."</strong>" ;?>
-                    <input type="hidden" name="plantillaNueva" value="2" />
+                    <input type="hidden" name="plantillaCreada" value="2" />
                     <input type="submit" value="EDITAR" />
                 </form>
                 <?php
             }else 
             {
                 ?>
-                <form action="creando.php" method="POST">
+            <form action="../models/creando.php" method="POST">
                 CREAR PLANTILLA
                 <input type="text" name="itNombre" value="" required />
                 <input type="submit" value="CREAR" />
@@ -56,3 +63,8 @@ include '../models/access_db.php'; //incluimos el acceso a la base de datos
 
 </html>
 </html>
+<?php
+} else {
+    header("Location: login.php");
+}
+?>

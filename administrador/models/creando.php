@@ -1,7 +1,7 @@
 <?php
 
 session_start();   
-include '../models/access_db.php';//incluimos el acceso a la base de datos
+include '../../models/access_db.php';//incluimos el acceso a la base de datos
 
 $itNombre = $mysqli->real_escape_string($_POST["itNombre"]);//validar sql injection
 
@@ -68,7 +68,7 @@ if($rowPlantillaCreada>0)
             }
             $contHeader++;
         }
-        echo $varHeader;
+        //echo $varHeader;
         $insertHeader = $mysqli->query("INSERT INTO tbl_header (".$varHeader.")"
                 . " SELECT ".$varHeader." FROM tbl_header WHERE id_plantilla=1");
         $updatetHeader = $mysqli->query("UPDATE tbl_header SET id_plantilla=2 WHERE id_header=2");
@@ -91,7 +91,7 @@ if($rowPlantillaCreada>0)
             }
             $contFooter++;
         }
-        echo $varFooter;
+        //echo $varFooter;
         $insertFooter= $mysqli->query("INSERT INTO tbl_footer (".$varFooter.")"
                . " SELECT ".$varFooter." FROM tbl_footer WHERE id_plantilla=1");
         $updateFooter= $mysqli->query("UPDATE tbl_footer SET id_plantilla=2 WHERE id_footer=2");
@@ -117,7 +117,7 @@ if($rowPlantillaCreada>0)
             }
             $contSeccion1++;
         }
-        echo $varSeccion1;
+        //echo $varSeccion1;
         $insertSeccion1= $mysqli->query("INSERT INTO tbl_seccion_1 (".$varSeccion1.")"
                 . " SELECT ".$varSeccion1." FROM tbl_seccion_1 WHERE id_plantilla=1");
         $updateSeccion1= $mysqli->query("UPDATE tbl_seccion_1 SET id_plantilla=2 WHERE id_seccion_1=2");
@@ -140,7 +140,7 @@ if($rowPlantillaCreada>0)
             }
             $contSeccion2++;
         }
-        echo $varSeccion2;
+        //echo $varSeccion2;
         $insertSeccion2= $mysqli->query("INSERT INTO tbl_seccion_2 (".$varSeccion2.")"
                 . " SELECT ".$varSeccion2." FROM tbl_seccion_2 WHERE id_plantilla=1");
         $updateSeccion2= $mysqli->query("UPDATE tbl_seccion_2 SET id_plantilla=2 WHERE id_seccion_2=2");
@@ -165,7 +165,7 @@ if($rowPlantillaCreada>0)
             }
             $contSeccion3++;
         }
-        echo $varSeccion3;
+        //echo $varSeccion3;
         $insertSeccion3= $mysqli->query("INSERT INTO tbl_seccion_3 (".$varSeccion3.")"
                 . " SELECT ".$varSeccion3." FROM tbl_seccion_3 WHERE id_plantilla=1");
         $updateSeccion3= $mysqli->query("UPDATE tbl_seccion_3 SET id_plantilla=2 WHERE id_seccion_3=2");
@@ -189,7 +189,7 @@ if($rowPlantillaCreada>0)
             }
             $contSeccion4++;
         }
-        echo $varSeccion4;
+        //echo $varSeccion4;
         $insertSeccion4= $mysqli->query("INSERT INTO tbl_seccion_4 (".$varSeccion4.")"
                 . " SELECT ".$varSeccion4." FROM tbl_seccion_4 WHERE id_plantilla=1");
         $updateSeccion4= $mysqli->query("UPDATE tbl_seccion_4 SET id_plantilla=2 WHERE id_seccion_4=2");
@@ -212,7 +212,7 @@ if($rowPlantillaCreada>0)
             }
             $contSeccion5++;
         }
-        echo $varSeccion5;
+        //echo $varSeccion5;
         $insertSeccion5= $mysqli->query("INSERT INTO tbl_seccion_5 (".$varSeccion5.")"
                 . " SELECT ".$varSeccion5." FROM tbl_seccion_5 WHERE id_plantilla=1");
         $updateSeccion5= $mysqli->query("UPDATE tbl_seccion_5 SET id_plantilla=2 WHERE id_seccion_5=2");
@@ -224,100 +224,102 @@ if($rowPlantillaCreada>0)
             
             
     
-        
-        $rutaGeneral = '../previsualizador/' . $itNombre ."/";
+        /*   INICIO CREAR ARCHIVOS DE NUEVA PLANTILLA   */
+         
+            
+        $rutaGeneral = '../../previsualizador/' . $itNombre ."/";
 
         /*  ruta controls  */
-        $carpetaControls = '../controls/';
-        $rutaControls = '../previsualizador/' . $itNombre ."/controls/";
+        $carpetaControls = '../../controls/';
+        $rutaControls = '../../previsualizador/' . $itNombre ."/controls/";
 
         /*  ruta css  */
-        $carpetaCss = '../css/';
-        $rutaCss = '../previsualizador/' . $itNombre ."/css/";
+        $carpetaCss = '../../css/';
+        $rutaCss = '../../previsualizador/' . $itNombre ."/css/";
 
         /*  ruta js  */
-        $carpetaJs = '../js/';
-        $rutaJs = '../previsualizador/' . $itNombre ."/js/";
+        $carpetaJs = '../../js/';
+        $rutaJs = '../../previsualizador/' . $itNombre ."/js/";
 
         /*  ruta libraries  */
-        $carpetaLibraries = '../libraries/';
-        $rutaLibraries = '../previsualizador/' . $itNombre ."/libraries/";
+        $carpetaLibraries = '../../libraries/';
+        $rutaLibraries = '../../previsualizador/' . $itNombre ."/libraries/";
 
         /*  ruta models  */
-        $carpetaModels = '../models/';
-        $rutaModels = '../previsualizador/' . $itNombre ."/models/";
+        $carpetaModels = '../../models/';
+        $rutaModels = '../../previsualizador/' . $itNombre ."/models/";
 
         /*  ruta sections  */
-        $carpetaSections = '../sections/';
-        $rutaSections = '../previsualizador/' . $itNombre ."/sections/";
+        $carpetaSections = '../../sections/';
+        $rutaSections = '../../previsualizador/' . $itNombre ."/sections/";
 
         /*  ruta src  */
-        $carpetaSrc = '../src/';
-        $rutaSrc = '../previsualizador/' . $itNombre ."/src/";
+        $carpetaSrc = '../../src/';
+        $rutaSrc = '../../previsualizador/' . $itNombre ."/src/";
 
         /*  RUTA SECCION 1  */
         $resultArchivo1 = $mysqli->query("SELECT nombre_seccion_1 FROM tbl_seccion_1 WHERE id_seccion_1=2");
         $rowArchivo1 = $resultArchivo1->fetch_array();
-        $carpetaSeccion1 = '../'.$rowArchivo1["nombre_seccion_1"];
-        $rutaSeccion1 = '../previsualizador/' . $itNombre ."/".$rowArchivo1["nombre_seccion_1"];
+        $carpetaSeccion1 = '../../'.$rowArchivo1["nombre_seccion_1"];
+        $rutaSeccion1 = '../../previsualizador/' . $itNombre ."/".$rowArchivo1["nombre_seccion_1"];
 
         /*  RUTA SECCION 2  */
         $resultArchivo2 = $mysqli->query("SELECT nombre_seccion_2 FROM tbl_seccion_2 WHERE id_seccion_2=2");
         $rowArchivo2 = $resultArchivo2->fetch_array();
-        $carpetaSeccion2 = '../'.$rowArchivo2["nombre_seccion_2"];
-        $rutaSeccion2 = '../previsualizador/' . $itNombre ."/".$rowArchivo2["nombre_seccion_2"];
+        $carpetaSeccion2 = '../../'.$rowArchivo2["nombre_seccion_2"];
+        $rutaSeccion2 = '../../previsualizador/' . $itNombre ."/".$rowArchivo2["nombre_seccion_2"];
 
         /*  RUTA SECCION 3  */
         $resultArchivo3 = $mysqli->query("SELECT nombre_seccion_3 FROM tbl_seccion_3 WHERE id_seccion_3=2");
         $rowArchivo3 = $resultArchivo3->fetch_array();
-        $carpetaSeccion3 = '../'.$rowArchivo3["nombre_seccion_3"];
-        $rutaSeccion3 = '../previsualizador/' . $itNombre ."/".$rowArchivo3["nombre_seccion_3"];
+        $carpetaSeccion3 = '../../'.$rowArchivo3["nombre_seccion_3"];
+        $rutaSeccion3 = '../../previsualizador/' . $itNombre ."/".$rowArchivo3["nombre_seccion_3"];
 
         /*  RUTA SECCION 4  */
         $resultArchivo4 = $mysqli->query("SELECT nombre_seccion_4 FROM tbl_seccion_4 WHERE id_seccion_4=2");
         $rowArchivo4 = $resultArchivo4->fetch_array();
-        $carpetaSeccion4 = '../'.$rowArchivo4["nombre_seccion_4"];
-        $rutaSeccion4 = '../previsualizador/' . $itNombre ."/".$rowArchivo4["nombre_seccion_4"];
+        $carpetaSeccion4 = '../../'.$rowArchivo4["nombre_seccion_4"];
+        $rutaSeccion4 = '../../previsualizador/' . $itNombre ."/".$rowArchivo4["nombre_seccion_4"];
 
         /*  RUTA SECCION 5  */
         $resultArchivo5 = $mysqli->query("SELECT nombre_seccion_5 FROM tbl_seccion_5 WHERE id_seccion_5=2");
         $rowArchivo5 = $resultArchivo5->fetch_array();
-        $carpetaSeccion5 = '../'.$rowArchivo5["nombre_seccion_5"];
-        $rutaSeccion5 = '../previsualizador/' . $itNombre ."/".$rowArchivo5["nombre_seccion_5"];
+        $carpetaSeccion5 = '../../'.$rowArchivo5["nombre_seccion_5"];
+        $rutaSeccion5 = '../../previsualizador/' . $itNombre ."/".$rowArchivo5["nombre_seccion_5"];
         
         /*  RUTA SECCION 5 GALERIAS 2 - 12  */
-        $carpetaSeccion5_2 = '../galeria_2.php';
-        $rutaSeccion5_2 = '../previsualizador/' . $itNombre ."/galeria_2.php";
+        $carpetaSeccion5_2 = '../../galeria_2.php';
+        $rutaSeccion5_2 = '../../previsualizador/' . $itNombre ."/galeria_2.php";
 
-        $carpetaSeccion5_3 = '../galeria_3.php';
-        $rutaSeccion5_3 = '../previsualizador/' . $itNombre ."/galeria_3.php";
+        $carpetaSeccion5_3 = '../../galeria_3.php';
+        $rutaSeccion5_3 = '../../previsualizador/' . $itNombre ."/galeria_3.php";
 
-        $carpetaSeccion5_4 = '../galeria_4.php';
-        $rutaSeccion5_4 = '../previsualizador/' . $itNombre ."/galeria_4.php";
+        $carpetaSeccion5_4 = '../../galeria_4.php';
+        $rutaSeccion5_4 = '../../previsualizador/' . $itNombre ."/galeria_4.php";
 
-        $carpetaSeccion5_5 = '../galeria_5.php';
-        $rutaSeccion5_5 = '../previsualizador/' . $itNombre ."/galeria_5.php";
+        $carpetaSeccion5_5 = '../../galeria_5.php';
+        $rutaSeccion5_5 = '../../previsualizador/' . $itNombre ."/galeria_5.php";
 
-        $carpetaSeccion5_6 = '../galeria_6.php';
-        $rutaSeccion5_6 = '../previsualizador/' . $itNombre ."/galeria_6.php";
+        $carpetaSeccion5_6 = '../../galeria_6.php';
+        $rutaSeccion5_6 = '../../previsualizador/' . $itNombre ."/galeria_6.php";
 
-        $carpetaSeccion5_7 = '../galeria_7.php';
-        $rutaSeccion5_7 = '../previsualizador/' . $itNombre ."/galeria_7.php";
+        $carpetaSeccion5_7 = '../../galeria_7.php';
+        $rutaSeccion5_7 = '../../previsualizador/' . $itNombre ."/galeria_7.php";
 
-        $carpetaSeccion5_8 = '../galeria_8.php';
-        $rutaSeccion5_8 = '../previsualizador/' . $itNombre ."/galeria_8.php";
+        $carpetaSeccion5_8 = '../../galeria_8.php';
+        $rutaSeccion5_8 = '../../previsualizador/' . $itNombre ."/galeria_8.php";
 
-        $carpetaSeccion5_9 = '../galeria_9.php';
-        $rutaSeccion5_9 = '../previsualizador/' . $itNombre ."/galeria_9.php";
+        $carpetaSeccion5_9 = '../../galeria_9.php';
+        $rutaSeccion5_9 = '../../previsualizador/' . $itNombre ."/galeria_9.php";
 
-        $carpetaSeccion5_10 = '../galeria_10.php';
-        $rutaSeccion5_10 = '../previsualizador/' . $itNombre ."/galeria_10.php";
+        $carpetaSeccion5_10 = '../../galeria_10.php';
+        $rutaSeccion5_10 = '../../previsualizador/' . $itNombre ."/galeria_10.php";
 
-        $carpetaSeccion5_11 = '../galeria_11.php';
-        $rutaSeccion5_11 = '../previsualizador/' . $itNombre ."/galeria_11.php";
+        $carpetaSeccion5_11 = '../../galeria_11.php';
+        $rutaSeccion5_11 = '../../previsualizador/' . $itNombre ."/galeria_11.php";
 
-        $carpetaSeccion5_12 = '../galeria_12.php';
-        $rutaSeccion5_12 = '../previsualizador/' . $itNombre ."/galeria_12.php";
+        $carpetaSeccion5_12 = '../../galeria_12.php';
+        $rutaSeccion5_12 = '../../previsualizador/' . $itNombre ."/galeria_12.php";
 
         if (!mkdir($rutaGeneral, 0777, true)) 
         {
@@ -595,8 +597,9 @@ if($rowPlantillaCreada>0)
             
             
             
-            echo "<br> CREADO TODO<br>";
+           // echo "<br> CREADO TODO<br>";
             $_SESSION['plantillaCreada'] = 1;
+            header("Location: ../index.php");
             //if (isset($_SESSION['plantillaCreada']) && $_SESSION['plantillaCreada'] == 1) {}
            
         
