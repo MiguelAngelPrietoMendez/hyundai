@@ -6,17 +6,21 @@
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
 	<script type="text/javascript" src="js/colorpicker.js"></script>
+	<script type="text/javascript" src="js/jquery.tagsinput.js"></script>
 	<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 	<link href="css/fileinput.css" rel="stylesheet" type="text/css">
 	<link href="css/styleHyundai.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="css/jquery.tagsinput.css" type="text/css">
 	<link href="css/cmsStyles.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="css/960.css" />
 	<link href="http://youoneagency.com/hyundai/youoneagency.com/hyundai/src/img/img-compartir-Facebook.jpg" rel="image_src">
 	<link rel="stylesheet" href="css/colorpicker.css" type="text/css" />
-
 </head>
 <body>
+		<div class="lightbox">
+			<div class="img"><img id="lightImg" alt="botones"></div>
+		</div>
 	<div class="container_12">
 			<br>
 		<div class="grid_3"><!--First row-->
@@ -35,7 +39,20 @@
 		  <div class="grid_3">
 				<div class="selectSection">
 					<p class="ssTitle">BODY <i class="hIcon fa fa-angle-down"></i></p>
-						<div class="sectionOptions">Color de fondo</div>
+						<div class="subSectionContainer">
+							<div class='opt-0 subSection transition activeOption first'>Color de fondo</div>
+
+							<div class='opt-1 subSection transition activeOption'>Textos / Colores</div>
+
+							<div class='opt-2 subSection transition activeOption'>Colores / Iconos / Legales</div>
+	
+							<div id="1-1" class='opt-3 subSection transition activeOption'>Imágen Producto</div>
+							<div id="1-2" class='opt-3 subSection transition'>Botones</div>
+							<div id="1-3" class='opt-3 subSection transition'>Descripción del Producto</div>
+							<div id="1-4" class='opt-3 subSection transition'>Título de Campaña</div>
+							<div id="1-5" class='opt-3 subSection transition'>Video</div>
+							<div id="1-6" class='opt-3 subSection transition'>Animación</div>
+						</div>
 				</div>
 		  </div>
 		  <div class="grid_9">
@@ -52,33 +69,31 @@
 			<!--Module-->
 			<div class="modules">
 				<div class="module" id="module-1">
-					<?php require('php/body.php') ?>
+					<?php include 'php/body.php' ?>
 				</div>
 				<div class="module" id="module-2">
-					<?php require('php/header.php') ?>
+					<?php include 'php/header.php' ?>
 				</div>
 				<div class="module" id="module-3">
-					<?php require('php/footer.php') ?>
+					<?php include 'php/footer.php' ?>
 				</div>
 				<div class="module" id="module-4">
-					<?php require('php/section_1.php') ?>
+					<?php include 'php/section_1.php' ?>
 				</div>
 				<div class="module" id="module-5">
-					<?php require('php/section_2.php') ?>
+					<?php include 'php/section_2.php' ?>
 				</div>
 				<div class="module" id="module-6">
-					<?php require('php/section_3.php') ?>
+					<?php include 'php/section_3.php' ?>
 				</div>
 				<div class="module" id="module-7">
-					<?php require('php/section_4.php') ?>
+					<?php include 'php/section_4.php' ?>
 				</div>
 				<div class="module" id="module-8">
-					<?php require('php/section_5.php') ?>
+					<?php include 'php/section_5.php' ?>
 				</div>
 			</div>
-
 		  </div>
-
 	</div>
 	<footer>
 		<hr>
